@@ -3,6 +3,6 @@ import express from 'express'
 
 const router: express.router = express.Router();
 
-router.get('create', )
+router.get('create', 123)
 
 export router;
