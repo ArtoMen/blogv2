@@ -3,14 +3,15 @@ import express from 'express';
 // @ts-ignore
 import passport from 'passport';
 
+import {users} from './servises/users';
+
 const app = express();
 
 import {config} from './config/config';
 
+import * as routerUser from './routes/users';
+
 export { app };
-
-
-
 
 // Other
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +22,7 @@ app.use(`/${config.pathToUploads}`, express.static(config.pathToUploads));
 
 // Routes
 // app.use('/api/posts', postRoutes);
-// app.use('/api/account', accountRoutes);
+app.use('/api/account', routerUser.router);
 // app.use('/api/comments', commentRoutes);
 
 // OS

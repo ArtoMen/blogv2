@@ -1,8 +1,7 @@
 // @ts-ignore
-import express from 'express'
+import * as express from 'express'
+import {users} from '../controllers/users';
 
-const router: express.router = express.Router();
+export let router: any = express.Router();
 
-router.get('create', 1)
-
-export router;
+router.get('/register', users.register);

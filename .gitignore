@@ -106,4 +106,6 @@ dist
 =======
 /node_modules
 /uploads
+
+servises/database.ts
 >>>>>>> b326544 (start)
