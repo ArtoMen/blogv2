@@ -1,9 +1,5 @@
-// @ts-ignore
 import express from 'express';
-// @ts-ignore
 import passport from 'passport';
-
-import {users} from './servises/users';
 
 const app = express();
 
