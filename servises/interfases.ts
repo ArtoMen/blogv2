@@ -1,18 +1,25 @@
-export interface loginUser {
-  id: number,
-  username: string,
-  email: string,
-  token: string
-}
-export interface user {
-  id: number,
-  username: string,
-  email: string,
+export interface User {
+  id?:number,
+  name:string,
+  password?:string,
+  email:string
 }
 
+export interface Post {
+  id?:number,
+  user_id:number,
+  title:string,
+  image:string,
+  body:string,
+  create_time:string,
+  update_time:string,
+  update:boolean
+}
 
-export interface registerUser {
-  username: string,
-  email: string,
-  password: string
+export interface PostUpdate {
+  title?:string,
+  image?:string,
+  body?:string,
+  update_time:string,
+  update:boolean
 }

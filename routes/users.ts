@@ -7,8 +7,8 @@ export let router: any = express.Router();
 
 router.get(
   '/register',
-  body('email'),
+  body('email').isEmail(),
   body('name'),
-  body('password'),
+  body('password').isLength({min: 6}),
   users.register
 );

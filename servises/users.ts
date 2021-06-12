@@ -1,11 +1,33 @@
 import {os} from './database';
-// import {user} from './interfases';
+import {User} from './interfases';
 
-export class users extends os {
-  async register():Promise<any> {
-    let user1: any;
-    user1 = await this.knex('users').insert({}, ['*']);
-    console.log(user1);
-    return user1;
+class users extends os {
+  async registerUser(user:User):Promise<any> {
+    const result: any = await this.knex('users').insert(user, ['*']);
+    return result[0];
+  }
+
+  async findUserEmail(user:User):Promise<any> {
+    let result: any = await this.knex('users').select('*').where({'email': user.email});
+    if(result.length == 0) return null;
+    return result[0];
+  }
+
+  async findUserId(id):Promise<any> {
+    let result: any = await this.knex('users').select('*').where({id});
+    if(result.length == 0) return null;
+    return result[0];
+  }
+
+  async changePass(user:User):Promise<any> {
+    let result: any = await this.knex('users').update({'password': user.password}).where({'id': user.id});
+    return true;
+  }
+
+  async deleteUser(user:User):Promise<any> {
+    let result: any = await this.knex('users').delete().where({'id': user.id});
+    return true;
   }
 }
+
+export const user: users = new users();

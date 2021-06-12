@@ -1,5 +1,5 @@
 export const config = {
-  secretKey: 'B',
+  secretKey: 'Blog',
   pathToUploads: 'uploads',
   port: 8080,
 }

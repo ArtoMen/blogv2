@@ -1,4 +1,6 @@
+// @ts-ignore
 import express from 'express';
+// @ts-ignore
 import passport from 'passport';
 
 const app = express();
@@ -13,7 +15,7 @@ export { app };
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(passport.initialize());
-// require('./middleware/passport')(passport);
+require('./middleware/passport')(passport);
 app.use(`/${config.pathToUploads}`, express.static(config.pathToUploads));
 
 // Routes
