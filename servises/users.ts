@@ -7,13 +7,13 @@ class users extends os {
     return result[0];
   }
 
-  async findUserEmail(email):Promise<any> {
+  async findUserEmail(email: number):Promise<any> {
     let result: any = await this.knex('users').select('*').where({'email': email});
     if(result.length == 0) return null;
     return result[0];
   }
 
-  async findUserId(id):Promise<any> {
+  async findUserId(id: number):Promise<any> {
     let result: any = await this.knex('users').select('*').where({id});
     if(result.length == 0) return null;
     return result[0];
