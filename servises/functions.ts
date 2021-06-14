@@ -11,3 +11,7 @@ export function errorValidation(req: express.Request, res: express.Response) {
     return true;
   }
 }
+
+export function error(res: express.Response, text: string) {
+  res.status(400).json({success: false, errorMessage: text});
+}

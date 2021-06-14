@@ -7,8 +7,8 @@ class users extends os {
     return result[0];
   }
 
-  async findUserEmail(user:User):Promise<any> {
-    let result: any = await this.knex('users').select('*').where({'email': user.email});
+  async findUserEmail(email):Promise<any> {
+    let result: any = await this.knex('users').select('*').where({'email': email});
     if(result.length == 0) return null;
     return result[0];
   }
@@ -30,4 +30,4 @@ class users extends os {
   }
 }
 
-export const user: users = new users();
+export const user: any = new users();
